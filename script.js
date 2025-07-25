@@ -2,11 +2,11 @@ let cart = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("https://my-json-server.typicode.com/aysegulozdem/duvardekorum/products")
-    .then(res => res.json())
-    .then(data => {
-      console.log(data); // ürünlerin tamamı burada
-      renderProducts(data);  // ürünleri göster
-    })
+  .then(res => res.json())
+  .then(products => {
+    console.log(products);  // ürünlerin tamamı burada
+    renderProducts(products);  // ürünleri göster
+  })
     .catch(err => {
       console.error("Veri alınamadı:", err);
       document.getElementById("product-list").innerHTML =
