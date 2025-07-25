@@ -1,17 +1,19 @@
 let cart = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("products.json")
-    .then(res => res.json())
-    .then(products => {
-      renderProducts(products);
-    })
+  fetch("https://my-json-server.typicode.com/aysegulozdem/duvardekorum/products")
+  .then(res => res.json())
+  .then(products => {
+    console.log(products);  // ürünlerin tamamı burada
+    renderProducts(products);  // ürünleri göster
+  })
     .catch(err => {
       console.error("Veri alınamadı:", err);
       document.getElementById("product-list").innerHTML =
         "<p class='text-center col-span-full'>Ürünler yüklenemedi.</p>";
     });
-    document.getElementById("checkout-btn").addEventListener("click", () => {
+
+  document.getElementById("checkout-btn").addEventListener("click", () => {
     if (cart.length === 0) {
       alert("Sepetiniz boş. Önce ürün ekleyin.");
       return;
